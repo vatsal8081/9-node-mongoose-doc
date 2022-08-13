@@ -1,0 +1,6 @@
+1) testModel.js
+2) relationship.js
+3) validation.js (not needed if we are learning and using some good request validation package like joi)
+4) populate.js
+5) relationshipAdvamce.js
+6) api-doc/intro.txt

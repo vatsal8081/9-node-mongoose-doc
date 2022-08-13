@@ -1,0 +1,6 @@
+- hear we will go through api doc for mongoose and then add some of usefull methods more 
+more detail info visit the api doc in mongoose.
+
+1) schima.js
+2) model.js
+3) query.js
