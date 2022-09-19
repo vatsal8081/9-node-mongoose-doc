@@ -74,16 +74,14 @@ const drivingLincenceSchima = new Schema({
 const blogSchima = new Schema({
   title: { type: String },
   body: { type: String },
-  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment' }],
 });
 
 const commentSchima = new Schema({
   text: { type: String },
+  comments: { type: mongoose.Schema.Types.ObjectId, ref: 'Blog' },
 });
 
-// hear as you can see for creating one to many relationship we have to create 2 models then we create one field which is array of objectIds in blog schima which will contain all the ids of comments which this post have.
-
-// notice one thing hear in mongodb the one to many relationship is defined in oppositway then sql. in sql we create reference id in the many part of the table where it will refrence single id of one table like in sql we will create blogId refrence field in comments table which will be pointing to single blog but in mongoDb we create one field in one table which will contain array of objectIds of many table. so that's why we created comments key which is array of objectIds of comments in blog schima.
+// hear as you can see for creating one to many relationship we have to create 2 models then we create one field which is objectId in comments schima which will id of blog.
 
 // many to many
 // for many to many relation in mongodb we don't create new pyot table we just create array of objectIds fields which will have all the ids of other tab;e in both tables
@@ -111,12 +109,10 @@ const tagSchima = new Schema({
 
 // for mongoDb the blog and comments both are seprate it just that in blog we are storing one comments field which will containg array of objectIds and those object ids are unique that's why we store them for decress duplication but thos are just unique ids for mongodb. mongodb don't know that this are ids of comment model so if you will store any id of user in comments object still mongodb will not complain because for it it's just ids no matter from which tabel.
 
-// in actual mongodb if you create this knid of relationship there is nearly no way you can get blog whit all it's comments in single query and single response. you have to fire blig dfind query and then fire seprate query for get all comments which ids match to ids store in comments array of blog table.
+// in actual mongodb if you create this knid of relationship there is nearly no way you can get blog whit all it's comments insted of lookup aggrigation in single query.
 
 // and belive me thats what the mongoose do behind the seens and thats why you get blog with comments in single query. we define ref property in comments key of the blog table it's for that. the ref key is used by mongoose internally it just used in mongoose not any use of it in mongoDB so base on that collection name of ref the mongoose get all data togather.
 
 // so this way mongoose hepls us to actuly define relationship and work with it.
 
 // now we also have to look that when we do find with populate mongoose gives all data whit it's refrence. so when we delete any post or any comment it also manage the related data to other tables or we have to do it by our self in one to one or one to many or in mamy to many relationships.
-
-

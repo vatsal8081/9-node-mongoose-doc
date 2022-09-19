@@ -36,19 +36,10 @@ const testSchima = new Schema({
 // Array
 // Decimal128
 // MapString
-// Number
-// Date
-// Buffer
-// Boolean
-// Mixed
-// ObjectId
-// Array
-// Decimal128
-// Map
 
 // 3
 // instance methods are methods which we can create for every schima class and then we can use it to model isntance for which schima we created the instance method
-// this are usefull to implement same and same kind of logic on schima.methods we can create new instance method just keep in main all this method should not be a arrow function otherwise they will not have there own this. and all this schima methods should be registed before we create model out of the schima
+// this are usefull to implement same and same kind of logic on schima.methods we can create new instance method just keep in mind all this method should not be a arrow function otherwise they will not have there own this. and all this schima methods should be registed before we create model out of the schima
 
 testSchima.methods.findSimmular = function () {
   // hear model name is the name which we will give to create model out of schima and this is refering to current instance which we create from model
